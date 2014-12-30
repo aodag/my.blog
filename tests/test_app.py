@@ -28,3 +28,9 @@ class TestApp(unittest.TestCase):
 
     def test_it(self):
         self.app.get("/")
+        res = self.app.get("/config")
+        res.form["description"] = "updated"
+        res = res.form.submit("save")
+        compare(res.form["description"].value, "updated")
+        res = self.app.get("/")
+        assert "updated" in res
