@@ -18,6 +18,12 @@ build:
     #     python_location: /usr/bin/python3.2
 
     # A step that executes `pip install` command.
+    - script:
+        name: upgrade pypa tools
+        code: |
+          python -m pip install -U pip -f wheelhouse
+          python -m pip install -U setuptools -f wheelhouse
+
     - pip-install:
         requirements_file: ""
         extra_args: "-f wheelhouse --no-index"
