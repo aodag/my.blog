@@ -18,7 +18,7 @@ build:
     #     python_location: /usr/bin/python3.2
 
     # A step that executes `pip install` command.
-    - pip-install
+    - pip-install:
         requirements_file: ""
         extra_args: "-f wheelhouse --no-index"
         packages_list: "tox"
